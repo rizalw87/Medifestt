@@ -1,0 +1,227 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Contact Section
+--------------------------------------------------------------*/
+.contact {
+  overflow: hidden;
+
+  .info-box {
+    color: var(--default-color);
+    background: var(--surface-color);
+    padding: 30px;
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    i {
+      font-size: 32px;
+      color: var(--accent-color);
+      border-radius: 50%;
+      padding: 15px;
+      background: color-mix(in srgb, var(--accent-color), transparent 90%);
+      margin-bottom: 20px;
+      display: inline-block;
+      line-height: 1;
+    }
+
+    h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    p {
+      padding: 0;
+      line-height: 24px;
+      font-size: 15px;
+      margin-bottom: 0;
+    }
+  }
+
+  .map-container {
+    overflow: hidden;
+    padding-bottom: 500px;
+    position: relative;
+    height: 0;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+      border: 0;
+    }
+
+    @media (max-width: 992px) {
+      padding-bottom: 350px;
+    }
+
+    @media (max-width: 768px) {
+      padding-bottom: 300px;
+    }
+  }
+
+  .php-email-form {
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    background: var(--surface-color);
+    border-radius: 15px;
+
+    .form-control {
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #ced4da;
+      font-size: 14px;
+      transition: all 0.3s;
+
+      &:focus {
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--accent-color), transparent 80%);
+      }
+
+      &::placeholder {
+        color: #adb5bd;
+      }
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+    }
+
+    button[type="submit"] {
+      background: var(--accent-color);
+      border: 0;
+      padding: 12px 34px;
+      color: var(--contrast-color);
+      border-radius: 50px;
+      font-weight: 500;
+      transition: 0.3s;
+
+      &:hover {
+        background: color-mix(in srgb, var(--accent-color), transparent 20%);
+        transform: scale(1.05);
+      }
+    }
+
+    .loading,
+    .error-message,
+    .sent-message {
+      display: none;
+      text-align: center;
+      padding: 15px;
+      margin-bottom: 24px;
+      font-weight: 500;
+      border-radius: 10px;
+    }
+
+    .loading {
+      background: #fff;
+      color: var(--accent-color);
+
+      &:before {
+        content: "";
+        display: inline-block;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        margin: 0 10px -6px 0;
+        border: 3px solid var(--accent-color);
+        border-top-color: #fff;
+        animation: animate-loading 1s linear infinite;
+      }
+    }
+
+    .error-message {
+      color: #fff;
+      background: #ed3c0d;
+    }
+
+    .sent-message {
+      color: #fff;
+      background: #18d26e;
+    }
+
+    @keyframes animate-loading {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--surface-color);
+      color: var(--accent-color);
+      font-size: 18px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: var(--accent-color);
+        color: var(--contrast-color);
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      }
+    }
+  }
+
+  @media (max-width: 992px) {
+    .info-box {
+      margin-bottom: 20px;
+      padding: 20px;
+    }
+
+    .php-email-form {
+      padding: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .info-box {
+      padding: 15px;
+
+      i {
+        font-size: 28px;
+        padding: 12px;
+      }
+
+      h3 {
+        font-size: 18px;
+      }
+    }
+
+    .social-links {
+      gap: 12px;
+
+      a {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+    }
+  }
+}

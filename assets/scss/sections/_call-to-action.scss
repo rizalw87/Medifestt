@@ -1,0 +1,339 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Call To Action Section
+--------------------------------------------------------------*/
+.call-to-action {
+  background: linear-gradient(180deg, var(--background-color) 0%, color-mix(in srgb, var(--surface-color), var(--accent-color) 3%) 100%);
+
+  .hero-content {
+    margin-bottom: 5rem;
+
+    .content-wrapper {
+      padding-right: 2rem;
+
+      @media (max-width: 992px) {
+        padding-right: 0;
+        margin-bottom: 3rem;
+        text-align: center;
+      }
+    }
+
+    h2 {
+      font-size: 3rem;
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: var(--heading-color);
+
+      @media (max-width: 768px) {
+        font-size: 2.2rem;
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: color-mix(in srgb, var(--default-color), transparent 25%);
+      margin-bottom: 2.5rem;
+    }
+
+    .action-buttons {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+
+      @media (max-width: 576px) {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+      }
+    }
+
+    .primary-btn {
+      background: var(--accent-color);
+      color: var(--contrast-color);
+      padding: 18px 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: all 0.4s ease;
+      display: inline-block;
+
+      &:hover {
+        background: color-mix(in srgb, var(--accent-color), black 15%);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px color-mix(in srgb, var(--accent-color), transparent 70%);
+      }
+    }
+
+    .secondary-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+
+      span {
+        margin-right: 0.5rem;
+      }
+
+      i {
+        transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        color: color-mix(in srgb, var(--accent-color), black 20%);
+
+        i {
+          transform: translateX(5px);
+        }
+      }
+    }
+
+    .hero-image {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        right: 20px;
+        bottom: 20px;
+        background: color-mix(in srgb, var(--accent-color), transparent 95%);
+        border-radius: 12px;
+        z-index: -1;
+      }
+
+      img {
+        border-radius: 12px;
+        box-shadow: 0 20px 60px color-mix(in srgb, var(--default-color), transparent 85%);
+      }
+    }
+  }
+
+  .stats-section {
+    margin-bottom: 5rem;
+    padding: 3rem 0;
+    border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+
+    .stat-item {
+      text-align: center;
+      padding: 1rem;
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 300;
+        color: var(--accent-color);
+        margin-bottom: 0.5rem;
+
+        @media (max-width: 768px) {
+          font-size: 2rem;
+        }
+      }
+
+      .stat-label {
+        font-size: 1rem;
+        color: color-mix(in srgb, var(--default-color), transparent 40%);
+        font-weight: 400;
+      }
+    }
+  }
+
+  .services-grid {
+    margin-bottom: 4rem;
+
+    .service-card {
+      background: var(--surface-color);
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      text-align: center;
+      height: 100%;
+      transition: all 0.4s ease;
+      border: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+      margin-bottom: 2rem;
+
+      &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px color-mix(in srgb, var(--default-color), transparent 88%);
+        border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
+      }
+
+      .service-icon {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: color-mix(in srgb, var(--accent-color), transparent 92%);
+        border-radius: 50%;
+        transition: all 0.4s ease;
+
+        i {
+          font-size: 2rem;
+          color: var(--accent-color);
+          transition: all 0.4s ease;
+        }
+      }
+
+      &:hover .service-icon {
+        background: var(--accent-color);
+
+        i {
+          color: var(--contrast-color);
+        }
+      }
+
+      h4 {
+        font-size: 1.4rem;
+        font-weight: 400;
+        margin-bottom: 1.2rem;
+        color: var(--heading-color);
+      }
+
+      p {
+        color: color-mix(in srgb, var(--default-color), transparent 30%);
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+      }
+
+      .service-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: color-mix(in srgb, var(--accent-color), black 20%);
+        }
+      }
+    }
+  }
+
+  .contact-banner {
+    background: linear-gradient(135deg, var(--accent-color) 0%, color-mix(in srgb, var(--accent-color), black 15%) 100%);
+    border-radius: 16px;
+    padding: 3rem;
+    color: var(--contrast-color);
+
+    @media (max-width: 768px) {
+      padding: 2rem;
+    }
+
+    .banner-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      @media (max-width: 992px) {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+      }
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    .contact-icon {
+      width: 60px;
+      height: 60px;
+      background: color-mix(in srgb, var(--contrast-color), transparent 85%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1.5rem;
+
+      @media (max-width: 768px) {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+
+      i {
+        font-size: 1.5rem;
+        color: var(--contrast-color);
+      }
+    }
+
+    .contact-text {
+      h5 {
+        color: var(--contrast-color);
+        font-size: 1.3rem;
+        font-weight: 400;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        color: color-mix(in srgb, var(--contrast-color), transparent 25%);
+        margin: 0;
+        line-height: 1.6;
+      }
+    }
+
+    .contact-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+      @media (max-width: 576px) {
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+
+    .call-btn {
+      background: var(--contrast-color);
+      color: var(--heading-color);
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.3s ease;
+
+      @media (max-width: 576px) {
+        width: 100%;
+        justify-content: center;
+      }
+
+      i {
+        margin-right: 8px;
+        font-size: 1.1rem;
+      }
+
+      &:hover {
+        background: color-mix(in srgb, var(--contrast-color), transparent 10%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px color-mix(in srgb, var(--default-color), transparent 75%);
+      }
+    }
+
+    .contact-link {
+      color: var(--contrast-color);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid color-mix(in srgb, var(--contrast-color), transparent 60%);
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: color-mix(in srgb, var(--contrast-color), transparent 20%);
+        border-bottom-color: var(--contrast-color);
+      }
+    }
+  }
+}

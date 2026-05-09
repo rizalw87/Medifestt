@@ -1,0 +1,480 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Doctors Section
+--------------------------------------------------------------*/
+.doctors {
+  /* Theme variables */
+  --card-bg: var(--surface-color);
+  --card-border: color-mix(in srgb, var(--default-color), transparent 85%);
+  --muted: color-mix(in srgb, var(--default-color), transparent 60%);
+  --soft-accent: color-mix(in srgb, var(--accent-color), transparent 85%);
+  --shadow: 0 8px 24px color-mix(in srgb, var(--default-color), transparent 90%);
+  --radius: 14px;
+
+  .btn-appointment {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 20%);
+    padding: 0.55rem 1rem;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: color-mix(in srgb, var(--accent-color), black 8%);
+      border-color: color-mix(in srgb, var(--accent-color), transparent 10%);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  .btn-soft {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 92%);
+    color: var(--accent-color);
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 75%);
+    padding: 0.55rem 1rem;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: color-mix(in srgb, var(--accent-color), transparent 86%);
+      border-color: color-mix(in srgb, var(--accent-color), transparent 60%);
+    }
+  }
+
+  /* Directory */
+  .doctor-directory {
+    .directory-bar {
+      background: color-mix(in srgb, var(--accent-color), transparent 94%);
+      border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+      box-shadow: var(--shadow);
+
+      .form-label {
+        font-weight: 600;
+        color: var(--heading-color);
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--muted);
+        font-size: 18px;
+      }
+
+      .search-input {
+        padding-left: 2.25rem;
+        color: var(--default-color);
+        background-color: var(--surface-color);
+        border-color: var(--card-border);
+
+        &:focus {
+          border-color: var(--accent-color);
+          box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--accent-color), transparent 80%);
+        }
+
+        &::placeholder {
+          color: color-mix(in srgb, var(--default-color), transparent 70%);
+        }
+      }
+    }
+
+    .directory-filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 20px 0 10px 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        cursor: pointer;
+        padding: 8px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--card-border);
+        background: var(--card-bg);
+        color: var(--default-color);
+        transition: all 0.3s ease;
+        user-select: none;
+
+        &:hover {
+          border-color: var(--accent-color);
+          color: var(--accent-color);
+        }
+
+        &.filter-active {
+          background: var(--accent-color);
+          color: var(--contrast-color);
+          border-color: var(--accent-color);
+        }
+      }
+    }
+  }
+
+  /* Doctor Card */
+  .doctor-card {
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 34px color-mix(in srgb, var(--default-color), transparent 88%);
+
+      .doctor-media .socials {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .doctor-media {
+      position: relative;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        display: block;
+
+        @media (min-width: 992px) {
+          height: 220px;
+        }
+      }
+
+      .tag {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: var(--accent-color);
+        color: var(--contrast-color);
+        padding: 6px 10px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 600;
+
+        &.alt {
+          background: color-mix(in srgb, var(--accent-color), transparent 20%);
+        }
+      }
+
+      .socials {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        display: flex;
+        gap: 8px;
+        opacity: 0;
+        transform: translateY(8px);
+        transition: all 0.3s ease;
+
+        a {
+          width: 36px;
+          height: 36px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          background: var(--card-bg);
+          border: 1px solid var(--card-border);
+          color: var(--default-color);
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: var(--accent-color);
+            color: var(--contrast-color);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+
+    .doctor-content {
+      padding: 16px;
+
+      .doctor-name {
+        font-size: 1.1rem;
+        margin: 0 0 4px;
+      }
+
+      .doctor-title {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+      }
+
+      .doctor-desc {
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+      }
+
+      .doctor-meta {
+        margin-bottom: 12px;
+
+        .badge.dept {
+          background: var(--soft-accent);
+          color: var(--accent-color);
+          border: 1px solid color-mix(in srgb, var(--accent-color), transparent 65%);
+          border-radius: 8px;
+          padding: 6px 10px;
+          font-weight: 600;
+        }
+      }
+
+      .doctor-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+    }
+  }
+
+  /* Carousel */
+  .doctor-carousel {
+    .swiper {
+      padding-bottom: 36px;
+    }
+
+    .swiper-wrapper {
+      height: auto !important;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: var(--accent-color);
+
+      &:after {
+        font-size: 22px;
+      }
+    }
+
+    .swiper-pagination-bullet {
+      background: var(--soft-accent);
+      opacity: 1;
+
+      &-active {
+        background: var(--accent-color);
+      }
+    }
+  }
+
+  /* Single Profile */
+  .single-profile {
+    .profile-media {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        min-height: 360px;
+      }
+
+      .availability {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        padding: 6px 10px;
+        border-radius: 10px;
+        font-weight: 600;
+
+        .bi-circle-fill {
+          color: color-mix(in srgb, var(--accent-color), transparent 20%);
+        }
+      }
+    }
+
+    .profile-content {
+      .badge {
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-weight: 600;
+
+        &.role {
+          background: var(--accent-color);
+          color: var(--contrast-color);
+        }
+
+        &.years,
+        &.cert {
+          background: var(--soft-accent);
+          color: var(--accent-color);
+          border: 1px solid color-mix(in srgb, var(--accent-color), transparent 60%);
+        }
+      }
+
+      .name {
+        font-size: 1.6rem;
+      }
+
+      .title {
+        color: var(--muted);
+      }
+
+      .highlights {
+        li {
+          padding-left: 4px;
+          margin-bottom: 6px;
+
+          i {
+            color: var(--accent-color);
+          }
+        }
+      }
+    }
+  }
+
+  /* Minimal / Compact */
+  .compact-view {
+    .minimal-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 14px 10px;
+      height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: var(--shadow);
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 28px color-mix(in srgb, var(--default-color), transparent 88%);
+      }
+
+      .avatar {
+        width: 68px;
+        height: 68px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid color-mix(in srgb, var(--accent-color), transparent 60%);
+      }
+
+      .info {
+        margin-top: 8px;
+
+        h4 {
+          font-size: 0.98rem;
+        }
+
+        small {
+          color: var(--muted);
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  /* Tabs Profile */
+  .profile-tabs {
+    .tab-profile-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: var(--shadow);
+
+      img {
+        height: 260px;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .badge {
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-weight: 600;
+
+        &.cert,
+        &.years {
+          background: var(--soft-accent);
+          color: var(--accent-color);
+          border: 1px solid color-mix(in srgb, var(--accent-color), transparent 60%);
+        }
+      }
+    }
+
+    .nav-pills {
+      .nav-link {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        color: var(--default-color);
+        margin-right: 8px;
+        border-radius: 999px;
+        font-weight: 600;
+
+        &:hover {
+          border-color: var(--accent-color);
+          color: var(--accent-color);
+        }
+
+        &.active {
+          background: var(--accent-color);
+          color: var(--contrast-color);
+          border-color: var(--accent-color);
+        }
+      }
+    }
+
+    .tab-content {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .schedule-grid {
+      .slot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: color-mix(in srgb, var(--accent-color), transparent 94%);
+        border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+        border-radius: 10px;
+        padding: 10px 12px;
+
+        strong {
+          color: var(--heading-color);
+        }
+
+        span {
+          color: var(--default-color);
+          font-weight: 600;
+        }
+      }
+    }
+
+    .review {
+      .stars i {
+        color: color-mix(in srgb, var(--accent-color), transparent 15%);
+      }
+    }
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 992px) {
+    .doctor-card .doctor-media img {
+      height: 240px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .single-profile .profile-media img {
+      min-height: 280px;
+    }
+  }
+}
